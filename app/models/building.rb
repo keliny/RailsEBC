@@ -5,5 +5,5 @@ class Building < ApplicationRecord
 
   # validations
   # VALID_PHONE_REGEX = /\A\d{3}-\d{3}-\d{3}\z/
-  validates :title, :code, presence: true
+  validates :title, :code, :description, presence: true
 end

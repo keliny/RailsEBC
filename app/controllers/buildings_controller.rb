@@ -13,6 +13,26 @@ class BuildingsController < ApplicationController
     end
   end
 
+  def edit
+    @building = Building.find(params[:id])
+  end
+
+  def update
+    building = Building.find(params[:id])
+    if building.update(building_params)
+      redirect_to :adminBuildings
+    else
+      flash[:errors] = building.errors.full_messages
+      redirect_to edit_building_path(building.id)
+    end
+  end
+
+  def destroy
+    Building.delete(params[:id])
+    redirect_to :adminBuildings
+  end
+
+
   # parameters
   def building_params
     params.require(:building).permit(:code, :title, :description)

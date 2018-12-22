@@ -1,13 +1,15 @@
 <% content_for(:title, "Administration - Buildings") %>
 
 <main class="main">
-  <nav class="breadcrumbs">
-    <ul class="breadcrumb">
-      <li>
-        <%= link_to "Buildings",{:controller => "administration", action: "buildings"}, class: "link-bread" %>
-        <a href="/adminBuildings.html" class="link-bread">Meeting Center</a></li>
-      <li><a href="rooms.html" class="link-bread">Rooms</a></li>
-      <li>Par 1.1 - Albrecht</li>
+  <nav class="admin-nav">
+    <ul class="admin-ul">
+      <li><%= link_to "Administration", {:controller => "administration", :action => "index"}, class: "admin-link" %></li>
+      <li><%= link_to "Buildings", {:controller => "administration", :action => "buildings"}, class: "admin-link" %></li>
+      <li><%= link_to "Rooms", {:controller => "administration", :action => "rooms"}, class: "admin-link" %></li>
+      <li><%= link_to "Teachers", {:controller => "administration", :action => "teachers"}, class: "admin-link" %></li>
+      <li><%= link_to "Students", {:controller => "administration", :action => "students"}, class: "admin-link" %></li>
+      <li><%= link_to "Lessons", {:controller => "administration", :action => "lessons"}, class: "admin-link" %></li>
+      <li><%= link_to "Courses", {:controller => "administration", :action => "courses"}, class: "admin-link" %></li>
     </ul>
   </nav>
 
@@ -18,16 +20,39 @@
       <% end %>
     <%end %>
 
-    <% @buildings_data.each do |building| %>
-      <article class="flex-article link-color">
-        <a href="rooms.html" class="bs-link-fix">
-          <img src="img/par1.1.jpg" alt="" class="room-img">
-          <h3 class="brick-text-h3"><%= building.code %></h3>
-          <h4 class="brick-text-h4"><%= building.title %></h4>
-          <p class="brick-text"><%= building.description %></p>
-        </a>
-      </article>
-    <% end %>
+    <div class="grid-schedule">
+      <h1>Buildings</h1>
+      <section class="grid-table">
+        <table class="table-schedule">
+          <thead>
+          <tr class="table-head">
+            <th>ID</th>
+            <th>Code</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @buildings_data.each do |building| %>
+            <tr class="tr-hover">
+              <td><%= building.id %></td>
+              <td><%= building.code %></td>
+              <td><%= building.title %></td>
+              <td><%= building.description %></td>
+              <td><%= link_to "Edit", edit_building_path(building.id), class: "admin-link" %></td>
+              <td>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <%= link_to "Delete", building_path(id: building.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+
   </div>
 
 </main>

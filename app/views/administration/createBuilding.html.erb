@@ -1,3 +1,5 @@
+<% content_for(:title, "Administration - Buildings") %>
+
 <main class="main">
   <nav class="admin-nav">
     <ul class="admin-ul">
@@ -11,5 +13,39 @@
     </ul>
   </nav>
 
+
+
+<!--  <div>-->
+    <%# if flash[:errors] %>
+      <%# flash[:errors].each do |e|%>
+<!--        <p><%#= e %></p>-->
+      <%# end %>
+    <%#end %>
+
+    <%#= form_for(@buildings) do |f| %>
+<!--      <p>-->
+        <%#= f.label :code%>
+        <%#= f.text_field :code %>
+<!--      </p>-->
+<!--      <p>-->
+        <%#= f.label :title %>
+        <%#= f.text_field :title %>
+<!--      </p>-->
+<!--      <p>-->
+        <%#= f.label :description %>
+        <%#= f.text_field :description %>
+<!--      </p>-->
+      <%#= f.submit %>
+    <%# end %>
+<!--  </div>-->
+
+  <div>
+    <%= simple_form_for @buildings do |f| %>
+      <%= f.input :code %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 
 </main>
