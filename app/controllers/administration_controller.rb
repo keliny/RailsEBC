@@ -9,29 +9,23 @@ class AdministrationController < ApplicationController
   end
 
 
-
-  def editBuilding
-    @building = Building.find(params[:id])
-  end
-
-
   # Course CRUD
   def courses
-
+    @courses = Course.all
   end
   # Lesson CRUD
   def lessons
-
+    @lessons = Lesson.all
   end
 
   #Teachers CRUD
   def teachers
-
+    @teachers = Teacher.all
   end
 
   # Students CRUD
   def students
-
+    @students = Student.all
   end
 
   # Rooms CRUD

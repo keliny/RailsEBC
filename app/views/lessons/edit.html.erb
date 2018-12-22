@@ -1,0 +1,37 @@
+<% content_for(:title, "Administration - Rooms - edit") %>
+
+<main class="main">
+  <nav class="admin-nav">
+    <ul class="admin-ul">
+      <li><%= link_to "Administration", {:controller => "administration", :action => "index"}, class: "admin-link" %></li>
+      <li><%= link_to "Buildings", {:controller => "administration", :action => "buildings"}, class: "admin-link" %></li>
+      <li><%= link_to "Rooms", {:controller => "administration", :action => "rooms"}, class: "admin-link" %></li>
+      <li><%= link_to "Teachers", {:controller => "administration", :action => "teachers"}, class: "admin-link" %></li>
+      <li><%= link_to "Students", {:controller => "administration", :action => "students"}, class: "admin-link" %></li>
+      <li><%= link_to "Lessons", {:controller => "administration", :action => "lessons"}, class: "admin-link" %></li>
+      <li><%= link_to "Courses", {:controller => "administration", :action => "courses"}, class: "admin-link" %></li>
+    </ul>
+  </nav>
+
+
+
+
+
+
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <%= simple_form_for @room do |f| %>
+      <%= f.input :code, label: "code code goes here.", error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :title, label: "title title goes here.", error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :building_id, label: "building_id description goes here.", error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :capacity, label: "capacity description goes here.", error: 'Value is mandatory, please specify one.'%>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+</main>

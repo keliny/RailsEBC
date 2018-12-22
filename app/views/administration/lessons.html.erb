@@ -1,3 +1,5 @@
+<% content_for(:title, "Administration - Buildings") %>
+
 <main class="main">
   <nav class="admin-nav">
     <ul class="admin-ul">
@@ -11,5 +13,52 @@
     </ul>
   </nav>
 
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <div class="grid-schedule">
+      <h1>Buildings - <%= link_to "Create new lesson", new_building_path, class: "admin-link" %></h1>
+      <section class="grid-table">
+        <table class="table-schedule">
+          <thead>
+          <tr class="table-head">
+            <th>ID</th>
+            <th>Start_at</th>
+            <th>End_at</th>
+            <th>Duration</th>
+            <th>Room</th>
+            <th>Teacher</th>
+            <th>Course</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @lessons.each do |lesson| %>
+            <tr class="tr-hover">
+              <td><%= lesson.id %></td>
+              <td><%= lesson.start_at %></td>
+              <td><%= lesson.end_at %></td>
+              <td><%= lesson.duration %></td>
+              <td><%= lesson.room.title %></td>
+              <td><%= lesson.teacher.first_name + " " + lesson.teacher.last_name %></td>
+              <td><%= lesson.course.title %></td>
+              <td><%= link_to "Edit", edit_building_path(building.id), class: "admin-link" %></td>
+              <td>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <%= link_to "Delete", building_path(id: building.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+  </div>
 
 </main>
