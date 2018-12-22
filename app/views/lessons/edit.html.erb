@@ -26,10 +26,10 @@
     <%end %>
 
     <%= simple_form_for @room do |f| %>
-      <%= f.input :code, label: "code code goes here.", error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :title, label: "title title goes here.", error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :building_id, label: "building_id description goes here.", error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :capacity, label: "capacity description goes here.", error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :code, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :title, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :building_id, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :capacity,  error: 'Value is mandatory, please specify one.'%>
       <%= f.button :submit %>
     <% end %>
   </div>

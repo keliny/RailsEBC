@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
   def update
     teacher = Teacher.find(params[:id])
     if teacher.update(teacher_params)
-      redirect_to :adminTeacher
+      redirect_to :adminTeachers
     else
       flash[:errors] = teacher.errors.full_messages
       redirect_to edit_teacher_path(teacher.id)
@@ -33,12 +33,12 @@ class TeachersController < ApplicationController
 
   def destroy
     Teacher.destroy(params[:id])
-    redirect_to :adminTeacher
+    redirect_to :adminTeachers
   end
 
 
   # parameters
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :email, :password_digest)
+    params.require(:teacher).permit(:first_name, :last_name, :email, :password)
   end
 end

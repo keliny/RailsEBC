@@ -1,4 +1,4 @@
-<% content_for(:title, "Administration - Rooms - edit") %>
+<% content_for(:title, "Administration - Teachers - edit") %>
 
 <main class="main">
   <nav class="admin-nav">
@@ -25,11 +25,11 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @room do |f| %>
-      <%= f.input :code, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :title, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :building_id, collection: Building.all, prompt: "Select a building", selected: @room.building_id %>
-      <%= f.input :capacity, error: 'Value is mandatory, please specify one.'%>
+    <%= simple_form_for @teacher do |f| %>
+      <%= f.input :first_name, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :last_name, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :email, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :password,  error: 'Value is mandatory, please specify one.'%>
       <%= f.button :submit %>
     <% end %>
   </div>

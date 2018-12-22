@@ -5,11 +5,11 @@ class Course < ApplicationRecord
   has_many :teacher, through: :teacher_assignments
   has_many :students, through: :student_assignments
   # 1:n - course x lesson
-  has_many :lessons, as: :lessonable, dependent: :destroy
+  has_many :lessons, as: :lessonable
 
-  enum studyType: [:FULL_TIME, :PART_TIME]
-  enum Language: [:CZECH, :ENGLISH]
+  enum studytype: [:FULL_TIME, :PART_TIME]
+  enum language: [:CZECH, :ENGLISH]
 
   # validations
-  validates :title, :code, :language, :studyType, presence: true
+  validates :title, :code, :language, :studytype, presence: true
 end

@@ -3,13 +3,16 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def new
+    @course = Course.new
+  end
   def create
     course = Course.new(course_params)
     if course.save
       redirect_to :adminCourses
     else
       flash[:errors] = course.errors.full_messages
-      redirect_to :new_course_path
+      redirect_to new_course_path
     end
   end
 
@@ -35,6 +38,6 @@ class CoursesController < ApplicationController
 
   # parameters
   def course_params
-    params.require(:course).permit(:code, :title, :language, studytype)
+    params.require(:course).permit(:code, :title, :language, :studytype)
   end
 end

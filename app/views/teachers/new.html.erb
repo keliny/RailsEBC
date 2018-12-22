@@ -1,4 +1,4 @@
-<% content_for(:title, "Administration - Rooms - edit") %>
+<% content_for(:title, "Administration - Teachers - new teacher") %>
 
 <main class="main">
   <nav class="admin-nav">
@@ -13,11 +13,6 @@
     </ul>
   </nav>
 
-
-
-
-
-
   <div>
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
@@ -25,11 +20,11 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @room do |f| %>
-      <%= f.input :code, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :title, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :building_id, collection: Building.all, prompt: "Select a building", selected: @room.building_id %>
-      <%= f.input :capacity, error: 'Value is mandatory, please specify one.'%>
+    <%= simple_form_for @teacher do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
       <%= f.button :submit %>
     <% end %>
   </div>

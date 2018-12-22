@@ -24,7 +24,7 @@
       <%= f.input :code %>
       <%= f.input :title %>
       <%= f.input :capacity %>
-      <%= f.input :building_id %>
+      <%= f.input :building_id, collection: Building.all, prompt: "Select a building" %>
       <%= f.button :submit %>
     <% end %>
   </div>
