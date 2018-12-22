@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_at: 2018-12-22 16:38:32
+  end_at: 2018-12-22 16:38:32
+  duration: 1
+  room: one
+  teacher: one
+  course: one
+
+two:
+  start_at: 2018-12-22 16:38:32
+  end_at: 2018-12-22 16:38:32
+  duration: 1
+  room: two
+  teacher: two
+  course: two
