@@ -3,6 +3,10 @@ class BuildingsController < ApplicationController
     @buildings = Building.all
   end
 
+  def new
+    @buildings = Building.new
+  end
+
   def create
     building = Building.new(building_params)
     if building.save

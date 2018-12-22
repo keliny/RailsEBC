@@ -36,6 +36,7 @@
               <td><%= room.code %></td>
               <td><%= room.title %></td>
               <td><%= room.building.title %></td>
+              <td><%= room.capacity %></td>
               <td><%= link_to "Edit", edit_room_path(room.id), class: "admin-link" %></td>
               <td>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

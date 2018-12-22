@@ -13,11 +13,6 @@
     </ul>
   </nav>
 
-
-
-
-
-
   <div>
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
@@ -25,10 +20,10 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @building do |f| %>
-      <%= f.input :code, label: "Building code goes here.", error: 'Code is mandatory, please specify one.'%>
-      <%= f.input :title, label: "Building title goes here.", error: 'Title is mandatory, please specify one.'%>
-      <%= f.input :description, label: "Building description goes here.", error: 'Description is mandatory, please specify one.'%>
+    <%= simple_form_for @buildings do |f| %>
+      <%= f.input :code %>
+      <%= f.input :title %>
+      <%= f.input :description %>
       <%= f.button :submit %>
     <% end %>
   </div>

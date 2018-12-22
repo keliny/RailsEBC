@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   # admin - building
   get "adminBuildings" => "administration#buildings"
-  get "adminCreateBuilding" => "administration#createBuilding"
-  get "adminEditBuilding" => "administration#editBuilding"
   #admin - courses
   get "adminCourses" => "administration#courses"
   # admin - lessons
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
   # administration
   get "administration" => "administration#index"
 
-  delete "buildings/:id" => "buildings#destroy"
   resources :administration
   resources :buildings
   resources :courses

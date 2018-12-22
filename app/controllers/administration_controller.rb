@@ -8,9 +8,7 @@ class AdministrationController < ApplicationController
     @buildings_data = Building.all
   end
 
-  def createBuilding
-    @buildings = Building.new
-  end
+
 
   def editBuilding
     @building = Building.find(params[:id])
