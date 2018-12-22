@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    Room.delete(params[:id])
+    Room.destroy(params[:id])
     redirect_to :adminRooms
   end
 

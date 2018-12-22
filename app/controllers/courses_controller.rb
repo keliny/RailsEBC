@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    Course.delete(params[:id])
+    Course.destroy(params[:id])
     redirect_to :adminCourses
   end
 

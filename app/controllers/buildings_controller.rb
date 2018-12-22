@@ -28,7 +28,7 @@ class BuildingsController < ApplicationController
   end
 
   def destroy
-    Building.delete(params[:id])
+    Building.destroy(params[:id])
     redirect_to :adminBuildings
   end
 
