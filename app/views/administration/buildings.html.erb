@@ -1,0 +1,33 @@
+<% content_for(:title, "Administration - Buildings") %>
+
+<main class="main">
+  <nav class="breadcrumbs">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Buildings",{:controller => "administration", action: "buildings"}, class: "link-bread" %>
+        <a href="/adminBuildings.html" class="link-bread">Meeting Center</a></li>
+      <li><a href="rooms.html" class="link-bread">Rooms</a></li>
+      <li>Par 1.1 - Albrecht</li>
+    </ul>
+  </nav>
+
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <% @buildings_data.each do |building| %>
+      <article class="flex-article link-color">
+        <a href="rooms.html" class="bs-link-fix">
+          <img src="img/par1.1.jpg" alt="" class="room-img">
+          <h3 class="brick-text-h3"><%= building.code %></h3>
+          <h4 class="brick-text-h4"><%= building.title %></h4>
+          <p class="brick-text"><%= building.description %></p>
+        </a>
+      </article>
+    <% end %>
+  </div>
+
+</main>

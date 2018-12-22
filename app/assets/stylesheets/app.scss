@@ -418,3 +418,33 @@ footer{
 .tr-hover-today td{
   text-align: center;
 }
+
+
+/*-------------------------------------- Admin ------------------------------------------*/
+.admin-nav{
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+.admin-ul{
+  list-style: none;
+  grid-column: 2;
+  padding: 0;
+  margin: 4px 0 4px 0;
+}
+
+.admin-ul li{
+  display: inline;
+}
+
+.admin-link{
+  text-decoration: none;
+  color: #E85829;
+  padding: 10px;
+}
+
+.admin-link:hover{
+  color: rgb(255, 8, 0);
+  text-decoration: underline;
+}

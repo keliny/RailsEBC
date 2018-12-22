@@ -1,0 +1,38 @@
+<% content_for(:title, "Administration - Buildings") %>
+
+<main class="main">
+  <nav class="breadcrumbs">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Buildings",{:controller => "administration", action: "buildings"}, class: "link-bread" %>
+        <a href="/adminBuildings.html" class="link-bread">Meeting Center</a></li>
+      <li><a href="rooms.html" class="link-bread">Rooms</a></li>
+      <li>Par 1.1 - Albrecht</li>
+    </ul>
+  </nav>
+
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <%= form_for(@buildings) do |f| %>
+      <p>
+        <%= f.label :code%>
+        <%= f.text_field :code %>
+      </p>
+      <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </p>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</main>
