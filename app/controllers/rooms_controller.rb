@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @room = Room..find(params[:id])
+    @room = Room.find(params[:id])
   end
 
   def update
