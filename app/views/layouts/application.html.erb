@@ -1,14 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>McNew</title>
-    <%= csrf_meta_tags %>
+<!doctype html>
+<html lang="en">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <title><%= yield(:title) %></title>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<header class="header">
+  <h1 class="header-h1"><a href="index.html" class="link-header"> Meeting Center</a></h1>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="index.html" class="link-menu active">Meeting Center</a> </li>
+      <li><a href="" class="link-menu">About</a></li>
+      <li><a href="" class="link-menu">Login</a></li>
+    </ul>
+  </nav>
+</header>
+<%= yield %>
+<footer class="footer">
+  <address class="footer-wrapper">
+    © Jakub Krejčiřík - <a href="mailto:jakub.krejcirik@plus4u.net">
+    jakub.krejcirik@plus4u.net</a>.
+  </address>
+
+</footer>
+</body>
+
 </html>

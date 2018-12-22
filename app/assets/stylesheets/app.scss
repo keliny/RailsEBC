@@ -1,0 +1,420 @@
+html{
+  height: 100%;
+}
+body{
+  margin: 0;
+  min-height: 100%;
+}
+
+
+/*-------------------------------------- Footer ------------------------------------------*/
+
+footer{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.footer{
+  margin-top: 150px;
+  bottom:0;
+  width:100%;
+  height:100px;
+
+}
+
+.footer-wrapper{
+  justify-self: center;
+  align-self: center;
+  color: black;
+}
+
+.footer-wrapper a{
+  text-decoration: none;
+  color: black;
+}
+
+/*-------------------------------------- GRID header ------------------------------------------*/
+
+.header{
+  display: grid;
+  grid-template-columns: 1fr 10fr 10fr 1fr;
+  height: 100px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  background-color:#E85829;
+}
+
+.header-h1{
+  grid-column: 2;
+  margin: 0;
+  align-self:center;
+  justify-self: stretch;
+}
+
+.header-nav{
+  grid-column: 3;
+  height: 100px;
+  align-self: center;
+  justify-self: right;
+}
+
+.header-nav ul{
+  list-style: none;
+}
+
+.header-nav ul li{
+  display: inline;
+  padding-right: 15px;
+}
+.link-menu{
+  text-decoration: none;
+  color: white;
+}
+.link-menu:hover{
+  color: black;
+  text-decoration: underline;
+}
+.active{
+  color: antiquewhite;
+}
+
+.link-header{
+  text-decoration: none;
+  color: white;
+}
+.link-header:hover{
+  color: black;
+}
+
+
+/*-------------------------------------- GRID bread ------------------------------------------*/
+
+.breadcrumbs{
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.breadcrumbs ul{
+  list-style: none;
+  grid-column: 2;
+  padding: 0;
+  margin: 4px 0 4px 0;
+}
+.breadcrumbs ul li{
+  display: inline;
+}
+.breadcrumb li+li:before{
+  padding: 10px;
+  color: black;
+  content: "/\00a0";
+}
+.link-bread{
+  text-decoration: none;
+  color: #E85829;
+}
+.link-bread:hover{
+  color: rgb(255, 8, 0);
+  text-decoration: underline;
+}
+
+
+/*-------------------------------------- GRID main - index ------------------------------------------*/
+
+.grid-articles{
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+}
+
+/*-------------------------------------- Articles ------------------------------------------*/
+.container-flex{
+  grid-column: 2;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-article{
+  //display: flex; // off coz it messes up generated code from rails, even though it's identical. Why????????? ofc it breaks other stuff
+  background: tomato;
+  padding: 0px;
+  width: 450px;
+  height: 150px;
+  margin: 10px 15px 0 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.flex-item:link, .flex-item:visited{
+  text-decoration: none;
+}
+
+.room-img{
+  height: 100%;
+  width: 40%;
+  margin: 0;
+  padding-right: 7px;;
+  object-fit: cover;
+  float: left;
+}
+
+.link-color a{
+  text-decoration: none;
+  color: white;
+}
+.brick-text{
+  font-size: 0.3em;
+  text-align: left;
+}
+
+.brick-text-h3{
+  font-size: 0.5em;
+  text-align: left;
+  line-height: 0.1em;
+
+}
+
+.brick-text-h4{
+  font-size: 0.4em;
+  text-align: left;
+  line-height: 0.1em;
+}
+
+.link-color:hover{
+  background: rgb(248, 100, 41);
+}
+
+
+
+
+/*-------------------------------------- Rooms ------------------------------------------*/
+.grid-rooms{
+  display: grid;
+  grid-template-columns:1fr 20fr 1fr;
+}
+
+.grid-rooms h1{
+  grid-column: 2;
+}
+
+.grid-room{
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 8fr 5fr;
+}
+
+.room-address{
+  justify-self: right;
+  background-color: rgb(230, 223, 220);
+  padding: 20px;
+}
+
+.room-address-fixed{
+  width: 336px;
+  justify-self: right;
+  background-color: rgb(230, 223, 220);
+  padding: 20px;
+}
+.room-address a, .room-address-fixed a{
+  color: #E85829;
+  text-decoration: none;
+}
+
+.address-link:hover{
+  color: rgb(255, 8, 0);
+  text-decoration: underline;
+}
+
+.grid-room-reverse{
+  margin-top: 20px;
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 305px auto;
+}
+.schedule-icon{
+  height: 25px;
+}
+
+.icon-link{
+  text-decoration: none;
+  color: #E85829;
+  font-size: 1.6em;
+}
+
+.icon-link:hover{
+  color: rgb(255, 8, 0);
+  text-decoration: underline;
+}
+
+.aside-schedule ul li{
+  display: grid;
+  grid-template-columns: 160px 120px;
+  height: 20px;
+}
+
+.aside-schedule ul{
+  list-style: none;
+  padding: 0;
+}
+
+.aside-schedule ul li a{
+  color: #E85829;
+  text-decoration: none;
+}
+.aside-schedule ul li a:hover{
+  color: rgb(255, 8, 0);
+  text-decoration: underline;
+}
+
+.img-building{
+  float: right;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.img-building-fixed{
+  justify-self: right;
+  width: 376px;
+  max-height: 1000px;
+  object-fit: cover;
+}
+
+/*-------------------------------------- Schedule ------------------------------------------*/
+.grid-schedule{
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+}
+
+.grid-schedule h1{
+  grid-column: 2;
+}
+.grid-table{
+  grid-column: 2;
+}
+
+.table-schedule{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+.table-head{
+  background-color: #E85829;
+  height: 50px;
+  color: white;
+  font-family: Montserrat-Medium;
+  /* font-size: 12px; */
+}
+
+.tr-hover td:hover{
+  color:rgb(218, 77, 30);
+  background-color:rgb(255, 200, 182);
+}
+
+.tr-hover:hover{
+  color:#E85829;
+  background-color:rgb(255, 242, 238);
+}
+
+.tr-hover{
+  height: 40px;
+
+}
+.tr-hover:nth-child(even) {
+  background-color: rgba(252, 247, 246, 0.507);
+}
+
+.tr-hover td{
+  text-align: center;
+}
+/*-------------------------------------- Today ------------------------------------------*/
+.grid-today{
+  display: grid;
+  grid-template-columns: 1fr 12fr 8fr 1fr;
+}
+
+.today-group{
+  grid-column: 2;
+}
+.grid-table{
+  grid-column: 2;
+}
+.today-img{
+  grid-column: 3;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.today-schedule{
+  padding-top: 15px;
+  grid-column: 2/4;
+  min-height: 1vh;
+}
+.tr-hover-today td:nth-child(1), .tr-hover-today td:nth-child(2),.tr-hover-today td:nth-child(3),.tr-hover-today td:nth-child(4){
+  width: 15%;
+}
+
+.progress-bar{
+  width: 100%;
+  height: 25px;
+  background-color: #ddd;
+  border-radius: 16px;
+
+}
+
+.progress-bar-25{
+  width: 25%;
+  height: inherit;
+  background-color: #E85829;
+  border-radius: 16px;
+}
+.progress-bar-50{
+  width: 50%;
+  height: inherit;
+  background-color: #E85829;
+  border-radius: 16px;
+}
+
+.progress-bar-100{
+  width: 100%;
+  height: inherit;
+  background-color: #E85829;
+  border-radius: 16px;
+}
+
+.progress-bar-text{
+  font-size: 1.3em;
+}
+
+.tr-hover-today{
+  height: 40px;
+}
+
+.tr-hover-today td:hover{
+  color:rgb(218, 77, 30);
+  background-color:rgb(255, 200, 182);
+}
+
+.tr-hover-today:hover{
+  background-color:rgb(255, 242, 238);
+}
+
+.tr-hover-today{
+  height: 40px;
+
+}
+.tr-hover-today:nth-child(even) {
+  background-color: rgba(240, 239, 239, 0.507);
+}
+
+.tr-hover-today td{
+  text-align: center;
+}

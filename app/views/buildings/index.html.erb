@@ -1,0 +1,25 @@
+<% content_for(:title, "Buildings") %>
+
+<main class="main">
+  <nav class="breadcrumbs">
+    <ul class="breadcrumb">
+      <li>Meeting Center</li>
+    </ul>
+  </nav>
+
+  <div class="grid-articles">
+
+    <section class="container-flex">
+      <% @buildings.each do |building| %>
+        <article class="flex-article link-color">
+          <a href="rooms.html" class="bs-link-fix">
+            <img src="img/par1.1.jpg" alt="" class="room-img">
+            <h3 class="brick-text-h3"><%= building.code %></h3>
+            <h4 class="brick-text-h4"><%= building.title %></h4>
+            <p class="brick-text"><%= building.description %></p>
+          </a>
+        </article>
+      <% end %>
+    </section>
+  </div>
+</main>

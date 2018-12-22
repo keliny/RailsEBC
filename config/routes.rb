@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # root_path of app
+  root "buildings#index"
+
+  resources :buildings
+  resources :courses
+  resources :teachers
+  resources :lessons
+  resources :rooms
+  resources :students
 end
