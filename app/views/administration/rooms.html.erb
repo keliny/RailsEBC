@@ -1,3 +1,5 @@
+<% content_for(:title, "Administration - Rooms") %>
+
 <main class="main">
   <nav class="admin-nav">
     <ul class="admin-ul">
@@ -11,5 +13,41 @@
     </ul>
   </nav>
 
+  <div>
+    <div class="grid-schedule">
+      <h1>Buildings - <%= link_to "Create new room", new_room_path, class: "admin-link" %></h1>
+      <section class="grid-table">
+        <table class="table-schedule">
+          <thead>
+          <tr class="table-head">
+            <th>ID</th>
+            <th>Code</th>
+            <th>Title</th>
+            <th>Building-title</th>
+            <th>Capacity</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @rooms.each do |room| %>
+            <tr class="tr-hover">
+              <td><%= room.id %></td>
+              <td><%= room.code %></td>
+              <td><%= room.title %></td>
+              <td><%= room.building.title %></td>
+              <td><%= link_to "Edit", edit_room_path(room.id), class: "admin-link" %></td>
+              <td>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <%= link_to "Delete", room_path(id: room.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+  </div>
 
 </main>

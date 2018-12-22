@@ -38,7 +38,7 @@ class AdministrationController < ApplicationController
 
   # Rooms CRUD
   def rooms
-
+    @rooms = Room.all
   end
 
 
