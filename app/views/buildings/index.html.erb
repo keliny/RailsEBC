@@ -8,7 +8,11 @@
   </nav>
 
   <div class="grid-articles">
-
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
     <section class="container-flex">
       <% @buildings.each do |building| %>
         <article class="flex-article link-color">

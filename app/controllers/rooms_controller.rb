@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   def index
     @rooms = Room.all
   end

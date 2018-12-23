@@ -1,0 +1,16 @@
+<% content_for(:title, "Login") %>
+
+<h1>Login</h1>
+<div>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e|%>
+      <p><%= e %></p>
+    <% end %>
+  <%end %>
+
+  <%= simple_form_for :sessions, :url => sessions_path do |f| %>
+    <%= f.input :email, :required =>true, :label => 'Email Address',:placeholder => 'Email Address' %>
+    <%= f.input :password, :required =>true, :label => 'Password',:placeholder => 'Password' %>
+    <%= f.button :submit, "Login"%>
+  <% end %>
+</div>

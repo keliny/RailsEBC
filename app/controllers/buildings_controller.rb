@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
   def index
     @buildings = Building.all
   end

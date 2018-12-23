@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   # administration
   get "administration" => "administration#index"
   # login page
-  get "adminLogin" => "administration#login"
+  # get "teacherLogin" => "teacher#login"
+  get "login" => "logins#login"
+  # resources :logins, only: [:login]
+  get "logout" => "sessions#destroy"
+  resources :sessions
 
   resources :administration
   resources :buildings

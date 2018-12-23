@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <title><%= yield(:title) %></title>
   <%= csrf_meta_tags %>
@@ -14,12 +14,17 @@
 
 <body>
 <header class="header">
-  <h1 class="header-h1"><a href="index.html" class="link-header"> Meeting Center</a></h1>
+  <h1 class="header-h1"><%= link_to "Meeting Center", buildings_path, class: "link-header" %></h1>
   <nav class="header-nav">
     <ul>
-      <li><a href="index.html" class="link-menu active">Meeting Center</a> </li>
-      <li><a href="" class="link-menu">About</a></li>
-      <li><a href="" class="link-menu">Login</a></li>
+      <li><%= link_to "Meeting Centre", buildings_path, class: "link-menu active" %></li>
+<!--      <li><a href="" class="link-menu">About</a></li>-->
+      <% if session[:user_id] %>
+        <li><%= link_to "Administration", {:controller => "administration", :action => "index"}, class: "link-menu" %></li>
+        <li><%= link_to "Logout", {:controller => "sessions", :action => "destroy"}, class: "link-menu" %></li>
+      <% else %>
+        <li><%= link_to "Login", {:controller => "logins", :action => "login"}, class: "link-menu" %></li>
+    <% end %>
     </ul>
   </nav>
 </header>
