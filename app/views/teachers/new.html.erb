@@ -3,7 +3,7 @@
 <main class="main">
   <%=  render 'layouts/adminMenu'%>
 
-  <div>
+  <div class="center-me">
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
         <p><%= e %></p>

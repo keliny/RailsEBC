@@ -23,7 +23,7 @@ class BuildingsController < ApplicationController
       redirect_to :adminBuildings
     else
       flash[:errors] = building.errors.full_messages
-      redirect_to :adminBuildings
+      redirect_to new_building_path
     end
   end
 

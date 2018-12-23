@@ -4,12 +4,13 @@
   <%=  render 'layouts/adminMenu'%>
 
   <div>
+    <div class="center-me">
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
         <p><%= e %></p>
       <% end %>
     <%end %>
-
+  </div>
     <div class="grid-schedule">
       <h1>Buildings - <%= link_to "Create new building", new_building_path, class: "admin-link" %></h1>
       <section class="grid-table">
