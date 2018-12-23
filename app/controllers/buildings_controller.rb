@@ -8,6 +8,14 @@ class BuildingsController < ApplicationController
     @buildings = Building.new
   end
 
+  def show
+    @building = Building.find(params[:id])
+  end
+
+  def schedule
+    @building = Building.find(params[:id])
+  end
+
   def create
     building = Building.new(building_params)
     if building.save

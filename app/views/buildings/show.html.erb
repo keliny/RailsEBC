@@ -1,0 +1,47 @@
+<% content_for(:title, "Buildings") %>
+
+
+<main class="main">
+  <nav class="breadcrumbs">
+    <ul class="breadcrumb">
+      <li><a href="<%= root_path %>" class="link-bread">Meeting Center</a></li>
+      <li>Rooms</li>
+    </ul>
+  </nav>
+  <div class="grid-rooms">
+
+    <h1>Název: <%= @building.title %></h1>
+    <section class="grid-room">
+      <p>popis: <%= @building.description %></p>
+      <address class="room-address-fixed">
+        Kudy k nám: <a href="https://goo.gl/maps/MqumTj9hj9G2" class="address-link">Unicorn College -
+        Parukářka</a><br>
+        Adresa: V Kapslovně 2767/2, 130 00 Praha 3 <br>
+        Tel: +420 271 097 111 <br>
+      </address>
+
+    </section>
+    <section class="grid-room-reverse">
+
+      <aside class="aside-schedule">
+        <a href="<%= schedule_path(@building.id) %>" class="icon-link">
+          <img src="/assets/schedule.png" alt="" class="schedule-icon"> Zobraz denní rozpis</a>
+
+        <p>Pro zobrazení rozvrhu vyberte místnost</p>
+        <ul>
+          <% if @building.rooms.count > 0 %>
+            <% @building.rooms.each do |r| %>
+              <li>
+                <%= r.title %> <%= link_to "Zobraz rozvrh", room_path(r.id) %>
+              </li>
+            <% end %>
+          <% else %>
+          <h4>Budova nema mistnosti!</h4>
+          <% end %>
+        </ul>
+      </aside>
+      <img src="/assets/parukarka.JPEG" alt="" class="img-building-fixed">
+
+    </section>
+  </div>
+</main>
