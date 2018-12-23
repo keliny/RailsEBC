@@ -1,13 +1,13 @@
 <% content_for(:title, "Administration - Courses") %>
 
 <main class="main">
-  <%=  render 'layouts/adminMenu'%>
+  <%= render 'layouts/adminMenu' %>
   <div>
     <% if flash[:errors] %>
-      <% flash[:errors].each do |e|%>
+      <% flash[:errors].each do |e| %>
         <p><%= e %></p>
       <% end %>
-    <%end %>
+    <% end %>
 
     <div class="grid-schedule">
       <h1>Courses - <%= link_to "Create new course", new_course_path, class: "admin-link" %></h1>
@@ -35,7 +35,8 @@
               <td><%= link_to "Edit", edit_course_path(course.id), class: "admin-link" %></td>
               <td>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <%= link_to "Delete", course_path(id: course.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+                <%= link_to "Delete", course_path(id: course.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %>
+              </td>
             </tr>
           <% end %>
 
