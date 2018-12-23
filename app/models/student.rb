@@ -7,10 +7,10 @@ class Student < ApplicationRecord
   has_many :courses, through: :student_assignments
   has_many :lessons, through: :student_attendances
 
-  enum studyType: [:FULL_TIME, :PART_TIME]
+  enum studytype: [:FULL_TIME, :PART_TIME]
 
   # validations
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :first_name, :last_name, :email, :studyType, :password, presence: true
+  validates :first_name, :last_name, :email, :studytype, :password, presence: true
   validates :email, format: {with: VALID_EMAIL_REGEX}, uniqueness: {:case_sensitive => false}
 end

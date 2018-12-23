@@ -1,4 +1,4 @@
-<% content_for(:title, "Administration - Lessons - new lesson") %>
+<% content_for(:title, "Administration - Courses - new course") %>
 
 <main class="main">
   <nav class="admin-nav">
@@ -20,13 +20,12 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @lesson do |f| %>
-      <%= f.input :start_at %>
-      <%= f.input :end_at %>
-      <%= f.input :duration %>
-      <%= f.input :room_id, collection: Room.all, prompt: "Select a room"  %>
-      <%= f.input :teacher_id, collection: Teacher.all, prompt: "Select a teacher"  %>
-      <%= f.input :course_id, collection: Course.all, prompt: "Select a course"  %>
+    <%= simple_form_for @student do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :studytype, collection: Student.studytypes.keys, prompt: "Select a studytype" %>
       <%= f.button :submit %>
     <% end %>
   </div>
