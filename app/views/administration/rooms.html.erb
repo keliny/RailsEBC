@@ -7,6 +7,9 @@
     <div class="grid-schedule">
       <h1>Rooms - <%= link_to "Create new room", new_room_path, class: "admin-link" %></h1>
       <section class="grid-table">
+        <% if @rooms.count < 1 %>
+          <h1><%= "Databaze neobsahuje zadne zaznamy." %></h1>
+        <% else %>
         <table class="table-schedule">
           <thead>
           <tr class="table-head">
@@ -36,6 +39,7 @@
 
           </tbody>
         </table>
+          <%end %>
       </section>
     </div>
 

@@ -14,6 +14,9 @@
       <% end %>
     <%end %>
     <section class="container-flex">
+      <% if @buildings.count < 1 %>
+        <h1><%= "Databaze neobsahuje zadne zaznamy." %></h1>
+      <% else %>
       <% @buildings.each do |building| %>
         <article class="flex-article link-color">
           <%= link_to building_path(building.id) do %>
@@ -27,6 +30,7 @@
             <%end %>
         </article>
       <% end %>
+        <%end %>
     </section>
   </div>
 </main>

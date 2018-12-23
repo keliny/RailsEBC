@@ -13,6 +13,9 @@
     <div class="grid-schedule">
       <h1>Lessons - <%= link_to "Create new lesson", new_lesson_path, class: "admin-link" %></h1>
       <section class="grid-table">
+        <% if @lessons.count < 1 %>
+          <h1><%= "Databaze neobsahuje zadne zaznamy." %></h1>
+        <% else %>
         <table class="table-schedule">
           <thead>
           <tr class="table-head">
@@ -46,6 +49,7 @@
 
           </tbody>
         </table>
+          <%end %>
       </section>
     </div>
 

@@ -25,29 +25,36 @@
         </tr>
         </thead>
         <tbody>
+        <% empty = true %>
         <% @rooms.each do |r| %>
-          <% r.lessons.each do |l| %>
-            <% if Date.current == l.start_at.to_date%>
+          <% if r.lessons.count < 1 %>
+          <% else %>
+            <% empty = false %>
+            <% r.lessons.each do |l| %>
+              <% if Date.current == l.start_at.to_date %>
 
-            <tr class="tr-hover-today tr-text">
-              <td><%= l.start_at.strftime("%H:%M") %> - <%= l.end_at.strftime("%H:%M") %></td>
-              <td><%= l.course.title %> <br></td>
-              <td><%= r.title %></td>
-              <td><%= l.teacher.first_name + " " + l.teacher.last_name %></td>
-              <td>
-                <div class="progress-bar">
+                <tr class="tr-hover-today tr-text">
+                  <td><%= l.start_at.strftime("%H:%M") %> - <%= l.end_at.strftime("%H:%M") %></td>
+                  <td><%= l.course.title %> <br></td>
+                  <td><%= r.title %></td>
+                  <td><%= l.teacher.first_name + " " + l.teacher.last_name %></td>
+                  <td>
+                    <div class="progress-bar">
 
-                  <div class="progress-bar-0">
-                    <span class="progress-bar-text">0%</span>
-                  </div>
-                </div>
-              </td>
-            </tr>
+                      <div class="progress-bar-0">
+                        <span class="progress-bar-text">0%</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           <% end %>
+
         <% end %>
-
-
+        <% if empty %>
+          <h1><%= "Databaze neobsahuje zadne zaznamy!" %></h1>
+        <% end %>
         </tbody>
       </table>
     </section>
