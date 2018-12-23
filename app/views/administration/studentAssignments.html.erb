@@ -11,30 +11,28 @@
     <%end %>
 
     <div class="grid-schedule">
-      <h1>Buildings - <%= link_to "Create new teacher", new_teacher_path, class: "admin-link" %></h1>
+      <h1>Assignments - <%= link_to "Create new assignment", new_student_assignment_path, class: "admin-link" %></h1>
       <section class="grid-table">
         <table class="table-schedule">
           <thead>
           <tr class="table-head">
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th>Student</th>
+            <th>Course</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
           </thead>
           <tbody>
-          <% @teachers.each do |teacher| %>
+          <% @studentAssignments.each do |assignment| %>
             <tr class="tr-hover">
-              <td><%= teacher.id %></td>
-              <td><%= teacher.first_name %></td>
-              <td><%= teacher.last_name %></td>
-              <td><%= teacher.email %></td>
-              <td><%= link_to "Edit", edit_teacher_path(teacher.id), class: "admin-link" %></td>
+              <td><%= assignment.id %></td>
+              <td><%= assignment.student.first_name + " " +  assignment.student.last_name%></td>
+              <td><%= assignment.course.title %></td>
+              <td><%= link_to "Edit", edit_student_assignment_path(assignment.id), class: "admin-link" %></td>
               <td>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <%= link_to "Delete", teacher_path(id: teacher.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+                <%= link_to "Delete", student_assignment_path(id: assignment.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
             </tr>
           <% end %>
 

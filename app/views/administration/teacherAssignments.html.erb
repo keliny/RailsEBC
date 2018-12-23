@@ -1,0 +1,46 @@
+<% content_for(:title, "Administration - Teachers") %>
+
+<main class="main">
+  <%=  render 'layouts/adminMenu'%>
+
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <div class="grid-schedule">
+      <h1>Assignments - <%= link_to "Create new assignment", new_teacher_assignment_path, class: "admin-link" %></h1>
+      <section class="grid-table">
+        <table class="table-schedule">
+          <thead>
+          <tr class="table-head">
+            <th>ID</th>
+            <th>Teacher</th>
+            <th>Course</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @teacherAssignments.each do |assignment| %>
+            <tr class="tr-hover">
+              <td><%= assignment.id %></td>
+              <td><%= assignment.teacher.first_name + " " +  assignment.teacher.last_name%></td>
+              <td><%= assignment.course.title %></td>
+              <td><%= link_to "Edit", edit_teacher_assignment_path(assignment.id), class: "admin-link" %></td>
+              <td>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <%= link_to "Delete", teacher_assignment_path(id: assignment.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+  </div>
+
+</main>

@@ -34,6 +34,13 @@ class AdministrationController < ApplicationController
     @rooms = Room.all
   end
 
+  def studentAssignments
+    @studentAssignments = StudentAssignment.all
+  end
+
+  def teacherAssignments
+    @teacherAssignments = TeacherAssignment.all
+  end
 
 
 

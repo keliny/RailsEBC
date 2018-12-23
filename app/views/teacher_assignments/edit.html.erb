@@ -1,0 +1,22 @@
+<% content_for(:title, "Administration - Teachers - edit") %>
+
+<main class="main">
+  <%=  render 'layouts/adminMenu'%>
+
+  <%= render partial: "comments", layout: "two_column_landing" %>
+
+  <div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|%>
+        <p><%= e %></p>
+      <% end %>
+    <%end %>
+
+    <%= simple_form_for @teacherAssignment do |f| %>
+      <%= f.input :course_id, :as => :select, :collection => Hash[Course.all.map { |c| [c.title, c.id] }], selected: @teacherAssignment.course_id %>
+      <%= f.input :teacher_id, :as => :select, :collection => Hash[Teacher.all.map { |s| [s.first_name + " " + s.last_name, s.id] }], selected: @teacherAssignment.teacher_id %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+</main>

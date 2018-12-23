@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get "adminLessons" => "administration#lessons"
   # admin - teachers
   get "adminTeachers" => "administration#teachers"
+  get "adminTeacherAssignments" => "administration#teacherAssignments"
   # admin - students
   get "adminStudents" => "administration#students"
+  get "adminStudentAssignments" => "administration#studentAssignments"
   # admin - rooms
   get "adminRooms" => "administration#rooms"
   # administration
@@ -23,6 +25,9 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy"
   resources :sessions
 
+  resources :student_assignments
+  resources :student_attendances
+  resources :teacher_assignments
   resources :administration
   resources :buildings
   resources :courses

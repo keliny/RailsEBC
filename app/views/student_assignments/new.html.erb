@@ -2,6 +2,7 @@
 
 <main class="main">
   <%=  render 'layouts/adminMenu'%>
+
   <div>
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
@@ -9,12 +10,9 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @student do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :studytype, collection: Student.studytypes.keys, prompt: "Select a studytype" %>
+    <%= simple_form_for @studentAssignment do |f| %>
+      <%= f.input :student_id, :as => :select, :collection => Hash[Student.all.map { |st| [st.first_name + " " + st.last_name, st.id] }], prompt: "Select a student" %>
+      <%= f.input :course_id, collection: Course.all, prompt: "Select a student" %>
       <%= f.button :submit %>
     <% end %>
   </div>

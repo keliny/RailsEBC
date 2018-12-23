@@ -1,21 +1,7 @@
 <% content_for(:title, "Administration - Rooms - edit") %>
 
 <main class="main">
-  <nav class="admin-nav">
-    <ul class="admin-ul">
-      <li><%= link_to "Administration", {:controller => "administration", :action => "index"}, class: "admin-link" %></li>
-      <li><%= link_to "Buildings", {:controller => "administration", :action => "buildings"}, class: "admin-link" %></li>
-      <li><%= link_to "Rooms", {:controller => "administration", :action => "rooms"}, class: "admin-link" %></li>
-      <li><%= link_to "Teachers", {:controller => "administration", :action => "teachers"}, class: "admin-link" %></li>
-      <li><%= link_to "Students", {:controller => "administration", :action => "students"}, class: "admin-link" %></li>
-      <li><%= link_to "Lessons", {:controller => "administration", :action => "lessons"}, class: "admin-link" %></li>
-      <li><%= link_to "Courses", {:controller => "administration", :action => "courses"}, class: "admin-link" %></li>
-    </ul>
-  </nav>
-
-
-
-
+  <%=  render 'layouts/adminMenu'%>
 
 
   <div>
