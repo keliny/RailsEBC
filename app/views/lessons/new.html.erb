@@ -25,7 +25,7 @@
       <%= f.input :end_at %>
       <%= f.input :duration %>
       <%= f.input :room_id, collection: Room.all, prompt: "Select a room"  %>
-      <%= f.input :teacher_id, collection: Teacher.all, prompt: "Select a teacher"  %>
+      <%= f.input :teacher_id, :as => :select, :collection => Hash[Teacher.all.map { |teacher| [teacher.first_name + " " + teacher.last_name, teacher.id] }], selected: @lesson.teacher_id %>
       <%= f.input :course_id, collection: Course.all, prompt: "Select a course"  %>
       <%= f.button :submit %>
     <% end %>

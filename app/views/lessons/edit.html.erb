@@ -25,11 +25,13 @@
       <% end %>
     <%end %>
 
-    <%= simple_form_for @room do |f| %>
-      <%= f.input :code, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :title, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :building_id, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :capacity,  error: 'Value is mandatory, please specify one.'%>
+    <%= simple_form_for @lesson do |f| %>
+      <%= f.input :start_at, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :end_at, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :duration, error: 'Value is mandatory, please specify one.'%>
+      <%= f.input :room_id, collection: Room.all, prompt: "Select a room", selected: @lesson.room_id %>
+      <%= f.input :teacher_id, :as => :select, :collection => Hash[Teacher.all.map { |teacher| [teacher.first_name + " " + teacher.last_name, teacher.id] }], selected: @lesson.teacher_id %>
+      <%= f.input :course_id, collection: Course.all, prompt: "Select a teacher", selected: @lesson.course_id %>
       <%= f.button :submit %>
     <% end %>
   </div>

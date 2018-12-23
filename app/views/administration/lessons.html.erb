@@ -47,10 +47,10 @@
               <td><%= lesson.room.title %></td>
               <td><%= lesson.teacher.first_name + " " + lesson.teacher.last_name %></td>
               <td><%= lesson.course.title %></td>
-              <td><%= link_to "Edit", edit_building_path(building.id), class: "admin-link" %></td>
+              <td><%= link_to "Edit", edit_lesson_path(lesson.id), class: "admin-link" %></td>
               <td>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <%= link_to "Delete", building_path(id: building.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
+                <%= link_to "Delete", lesson_path(id: lesson.id, authenticity_token: form_authenticity_token), data: {method: :delete, confirm: "are you sure?"}, class: "admin-link" %></td>
             </tr>
           <% end %>
 

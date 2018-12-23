@@ -1,7 +1,7 @@
 class Teacher < ApplicationRecord
   has_secure_password
   # 1:n - teacher x lesson, teacher x teacher_assignment
-  has_many :lessons, as: :lessonable
+  has_many :lessons #, as: :lessonable
   has_many :teacher_assignments, dependent: :destroy
   # m:n - teacher x course
   has_many :courses, through: :teacher_assignments

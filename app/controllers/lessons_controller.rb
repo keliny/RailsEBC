@@ -24,7 +24,7 @@ class LessonsController < ApplicationController
   def update
     lesson = Lesson.find(params[:id])
     if lesson.update(lesson_params)
-      redirect_to :adminLesson
+      redirect_to :adminLessons
     else
       flash[:errors] = lesson.errors.full_messages
       redirect_to edit_lesson_path(lesson.id)
@@ -33,9 +33,8 @@ class LessonsController < ApplicationController
 
   def destroy
     Lesson.destroy(params[:id])
-    redirect_to :adminLesson
+    redirect_to :adminLessons
   end
-
 
   # parameters
   def lesson_params
