@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "login" => "logins#login"
   # resources :logins, only: [:login]
   get "logout" => "sessions#destroy"
+  # post "logout" => "sessions#destroy"
   get "buildingSchedule/:id" => "buildings#schedule", as: "schedule"
   resources :sessions
 

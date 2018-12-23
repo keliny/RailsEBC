@@ -16,7 +16,7 @@ class AdministrationController < ApplicationController
   end
   # Lesson CRUD
   def lessons
-    @lessons = Lesson.all
+    @lessons = Lesson.all.includes(:room,:teacher,:course)
   end
 
   #Teachers CRUD
@@ -31,15 +31,15 @@ class AdministrationController < ApplicationController
 
   # Rooms CRUD
   def rooms
-    @rooms = Room.all
+    @rooms = Room.all.includes(:building)
   end
 
   def studentAssignments
-    @studentAssignments = StudentAssignment.all
+    @studentAssignments = StudentAssignment.all.includes(:student, :course)
   end
 
   def teacherAssignments
-    @teacherAssignments = TeacherAssignment.all
+    @teacherAssignments = TeacherAssignment.all.includes(:teacher, :course)
   end
 
 

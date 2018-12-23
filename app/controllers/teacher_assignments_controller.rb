@@ -2,7 +2,7 @@ class TeacherAssignmentsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @teacherAssignments = TeacherAssignment.all
+    @teacherAssignments = TeacherAssignment.all.includes( :teacher, :course)
   end
 
   def new
