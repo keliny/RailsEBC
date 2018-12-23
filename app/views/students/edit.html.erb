@@ -15,7 +15,7 @@
       <%= f.input :last_name, error: 'Value is mandatory, please specify one.'%>
       <%= f.input :email, error: 'Value is mandatory, please specify one.'%>
       <%= f.input :password, error: 'Value is mandatory, please specify one.'%>
-      <%= f.input :studytype, collection: Student.studytypes.keys, prompt: "Select a studytype", selected: @student.studytype %>
+      <%= f.input :study_type, collection: Student.study_type.values, prompt: "Select a study_type", selected: @student.study_type %>
       <%= f.button :submit %>
     <% end %>
   </div>

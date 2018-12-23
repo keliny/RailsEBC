@@ -60,3 +60,6 @@ gem 'simple_form'
 
 # bullet??
 gem 'bullet', group: 'development'
+
+# enumerize
+gem 'enumerize'

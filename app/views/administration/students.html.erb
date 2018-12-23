@@ -32,7 +32,7 @@
               <td><%= student.first_name %></td>
               <td><%= student.last_name %></td>
               <td><%= student.email %></td>
-              <td><%= student.studytype %></td>
+              <td><%= student.study_type %></td>
               <td><%= link_to "Edit", edit_student_path(student.id), class: "admin-link" %></td>
               <td>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

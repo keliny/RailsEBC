@@ -13,8 +13,8 @@
     <%= simple_form_for @course do |f| %>
       <%= f.input :title %>
       <%= f.input :code %>
-      <%= f.input :language,  collection: Course.languages.keys, prompt: "Select a language" %>
-      <%= f.input :studytype, collection: Course.studytypes.keys, prompt: "Select a studytype" %>
+      <%= f.input :language_type,  collection: Course.language_type.values, prompt: "Select a language" %>
+      <%= f.input :study_type, collection: Course.study_type.values, prompt: "Select a study type" %>
       <%= f.button :submit %>
     <% end %>
   </div>
