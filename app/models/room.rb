@@ -6,4 +6,5 @@ class Room < ApplicationRecord
   # validations
   validates :title, :code, :building_id, :capacity, presence: true
   validates :capacity, numericality: {greater_than: 0}
+  validates :code, :title, uniqueness: {:case_sensitive => false}
 end

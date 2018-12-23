@@ -12,4 +12,5 @@ class Course < ApplicationRecord
 
   # validations
   validates :title, :code, :language, :studytype, presence: true
+  validates :code, :title, uniqueness: {:case_sensitive => false}
 end

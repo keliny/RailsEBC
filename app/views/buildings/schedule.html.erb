@@ -8,6 +8,7 @@
   </nav>
   <div class="grid-today">
     <div class="today-group">
+
       <h1>PAR 1.1 - Albrecht</h1>
       <p>Dnes se v budově konají 3 události</p>
     </div>
@@ -24,46 +25,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="tr-hover-today tr-text">
-          <td>8:00 - 9:30</td>
-          <td>Webové technologie <br></td>
-          <td>Par 1.1</td>
-          <td>Tomáš Jukyn</td>
-          <td>
-            <div class="progress-bar">
-              <div class="progress-bar-100">
-                <span class="progress-bar-text">100%</span>
-              </div>
-            </div>
-          </td>
-        </tr>
+        <% @building.rooms.each do |r| %>
+          <% r.lessons.each do |l| %>
+            <% if Date.current == l.start_at.to_date%>
 
-        <tr class="tr-hover-today tr-text">
-          <td>9:35 - 11:10</td>
-          <td>Webové technologie <br></td>
-          <td>Par 1.1</td>
-          <td>Tomáš Jukyn</td>
-          <td>
-            <div class="progress-bar">
-              <div class="progress-bar-50">
-                <span class="progress-bar-text">50%</span>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr class="tr-hover-today tr-text">
-          <td>9:35 - 12:30</td>
-          <td>Webové technologie <br></td>
-          <td>Par 1.1</td>
-          <td>Tomáš Jukyn</td>
-          <td>
-            <div class="progress-bar">
-              <div class="progress-bar-25">
-                <span class="progress-bar-text">25%</span>
-              </div>
-            </div>
-          </td>
-        </tr>
+            <tr class="tr-hover-today tr-text">
+              <td><%= l.start_at.strftime("%H:%M") %> - <%= l.end_at.strftime("%H:%M") %></td>
+              <td><%= l.course.title %> <br></td>
+              <td><%= r.title %></td>
+              <td><%= l.teacher.first_name + " " + l.teacher.last_name %></td>
+              <td>
+                <div class="progress-bar">
+
+                  <div class="progress-bar-0">
+                    <span class="progress-bar-text">0%</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+
 
         </tbody>
       </table>

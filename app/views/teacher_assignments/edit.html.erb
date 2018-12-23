@@ -3,8 +3,6 @@
 <main class="main">
   <%=  render 'layouts/adminMenu'%>
 
-  <%= render partial: "comments", layout: "two_column_landing" %>
-
   <div>
     <% if flash[:errors] %>
       <% flash[:errors].each do |e|%>
