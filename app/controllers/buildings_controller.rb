@@ -14,6 +14,7 @@ class BuildingsController < ApplicationController
 
   def schedule
     @building = Building.find(params[:id])
+    @rooms = Room.where(building_id: params[:id]).includes(:lessons)
   end
 
   def create

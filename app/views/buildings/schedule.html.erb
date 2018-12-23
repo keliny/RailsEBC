@@ -10,9 +10,9 @@
     <div class="today-group">
 
       <h1>PAR 1.1 - Albrecht</h1>
-      <p>Dnes se v budově konají 3 události</p>
+      <p></p>
     </div>
-    <img src="img/par1.1.jpg" alt="" class="today-img">
+    <img src="/assets/par1.1.jpg" alt="" class="today-img">
     <section class="today-schedule">
       <table class="table-schedule">
         <thead>
@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @building.rooms.each do |r| %>
+        <% @rooms.each do |r| %>
           <% r.lessons.each do |l| %>
             <% if Date.current == l.start_at.to_date%>
 
