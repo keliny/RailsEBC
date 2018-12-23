@@ -1,7 +1,64 @@
 <% content_for(:title, "Administration - dashboard") %>
 
 <main class="main">
-  <%=  render 'layouts/adminMenu'%>
+  <%= render 'layouts/adminMenu' %>
 
+
+  <div class="admin-wrapper">
+    <section class="container-flex">
+      <article class="flex-article link-color">
+
+        <a href="<%= adminBuildings_path %>" class="admin-href">
+          <p class="admin-h3"><%= Building.all.count %> Buildings</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminRooms_path %>" class="admin-href">
+          <p class="admin-h3"><%= Room.all.count %> Rooms</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminTeachers_path %>" class="admin-href">
+          <p class="admin-h3"><%= Teacher.all.count %> Teachers</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminStudents_path %>" class="admin-href">
+          <p class="admin-h3"><%= Student.all.count %> Students</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminLessons_path %>" class="admin-href">
+          <p class="admin-h3"><%= Lesson.all.count %> Lessons</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminCourses_path %>" class="admin-href">
+          <p class="admin-h3"><%= Course.all.count %> Courses</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminTeacherAssignments_path %>" class="admin-href">
+          <p class="admin-h3"><%= TeacherAssignment.all.count %> Assigned Teachers</p>
+        </a>
+      </article>
+
+      <article class="flex-article link-color">
+        <a href="<%= adminStudentAssignments_path %>" class="admin-href">
+          <p class="admin-h3"><%= StudentAssignment.all.count %> Assigned Students</p>
+        </a>
+      </article>
+    </section>
+
+  </div>
+  <div class="grid-articles">
+
+  </div>
 
 </main>
