@@ -57,3 +57,6 @@ gem 'seed_dump'
 
 # forced to use this
 gem 'simple_form'
+
+# bullet??
+gem 'bullet', group: 'development'

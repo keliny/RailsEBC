@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "adminRooms" => "administration#rooms"
   # administration
   get "administration" => "administration#index"
+  # login page
+  get "adminLogin" => "administration#login"
 
   resources :administration
   resources :buildings
